@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+.main {
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 120px 24px 160px 24px;
+    pointer-events: none;
+  }
+  
+  .main:before {
+    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+    position: absolute;
+    content: "";
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  
+  .main:after {
+    content: "";
+    background-image: url("/assets/images/grid.svg");
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+    filter: invert(1);
+  }
+  
+  .gradient {
+    height: fit-content;
+    z-index: 3;
+    width: 100%;
+    max-width: 640px;
+    background-image: radial-gradient(
+        at 27% 37%,
+        hsla(215, 98%, 61%, 1) 0px,
+        transparent 0%
+      ),
+      radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+      radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+      radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+      radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+      radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+      radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    filter: blur(100px) saturate(150%);
+    top: 80px;
+    opacity: 0.15;
+  }
+   */
+
+.app {
+	@apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+/* Nav Component */
+.logo_text {
+	@apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+}
+
+.dropdown {
+	@apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+	@apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+/* Flex box */
+.flex-center {
+	@apply flex justify-center items-center;
+}
+
+.flex-start {
+	@apply flex justify-start items-start;
+}
+
+.flex-end {
+	@apply flex justify-end items-center;
+}
+
+.flex-between {
+	@apply flex justify-between items-center;
+}
+
+/* My Styles */
+
+.hero-bg-image {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url('https://hips.hearstapps.com/hmg-prod/images/priors-crescent-living-room-haus-interiors-show-home-1602462623.jpg?crop=0.668xw:1.00xh;0.0731xw,0&resize=2048:*');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+}
+
+/* Navbar Menu */
+.navbar {
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	position: relative;
+	transition: all 0.25s;
+}
+.navbar-top,
+.navbar-middle,
+.navbar-bottom {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 3px;
+	background: rgb(220, 20, 230);
+	transform: rotate(0);
+	transition: all 0.5s;
+}
+.navbar-middle {
+	width: 14px;
+	transform: translateY(7px);
+}
+.navbar-bottom {
+	transform: translateY(14px);
+}
+.open {
+	transform: rotate(90deg);
+	transform: translateY(0px);
+}
+.open .navbar-top {
+	transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .navbar-middle {
+	display: none;
+}
+
+.open .navbar-bottom {
+	transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.mickel {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1rem;
+	/* padding: 40px; */
+}
+/* custtom grid */
+.checkout {
+	display: grid;
+	grid-template-areas:
+		'header header header'
+		'main main side-content'
+		'footer footer footer';
+	grid-template-columns: 1fr 4fr 2fr;
+	grid-template-rows: 100px 1fr 100px;
+}
+.header {
+	grid-area: header;
+}
+.main {
+	grid-area: main;
+}
+.side-content {
+	grid-area: side-content;
+}
+.footer {
+	grid-area: footer;
+}
+
+@media (max-width: 768px) {
+	.checkout {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.agent_details,
+.profile {
+	position: relative;
+}
+.agent_details .agent_cover .cover_picture {
+	height: 40vh;
+	width: 100%;
+	margin-bottom: 4rem;
+}
+.agent_details .agent_profile .profile_picture {
+	height: 110px;
+	width: 110px;
+	border-radius: 50%;
+	border: 7px solid rgb(172, 8, 172);
+	position: absolute;
+	left: 10%;
+	top: 75%;
+}
+.signup_form {
+	display: flex;
+	justify-content: center;
+	margin: 2rem 10px 1rem 10px;
+}
+.checkout {
+	display: flex;
+	justify-content: center;
+	margin: 2rem 10px 1rem 10px;
+}
+.checkout_details {
+	width: 50%;
+}
+.total-price {
+	font-weight: bold;
+	font-size: 25px;
+}
+.details {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.checkout_details .img img {
+	height: 100%;
+	width: 95%;
+}
+.my_top {
+	font-weight: bold;
+	font-size: 25px;
+}
+h5 {
+	font-weight: bold;
+}
+.form_details {
+	width: 50%;
+}
+.form_split input {
+	padding: 7px 20px 7px 20px;
+}
+@media (max-width: 1200px) {
+	.mickel {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (max-width: 768px) {
+	.mickel {
+		grid-template-columns: 1fr;
+	}
+}
+@media screen and (max-width: 800px) {
+	.form_details {
+		width: 100%;
+	}
+	.checkout_details {
+		width: 100%;
+	}
+	.checkout_details .img img {
+		height: 100%;
+		width: 95%;
+	}
+}
+
+/* profile style */
+.profile .profile_cover .cover_picture {
+	height: 40vh;
+	width: 100%;
+	margin-bottom: 4rem;
+}
+.profile .profile_pic .profile_picture {
+	height: 110px;
+	width: 110px;
+	border-radius: 50%;
+	border: 7px solid rgb(172, 8, 172);
+	position: absolute;
+	left: 10%;
+	top: 75%;
+}
+.content {
+	margin-top: 2rem;
+}
+.content .user_details {
+	display: flex;
+	justify-content: center;
+}
+.content .user_details .contain {
+	width: 50%;
+}
+.content .user_details .contain .single_detail {
+	display: flex;
+	justify-content: space-between;
+}
+.content .user_details .contain .single_detail h2 {
+	word-break: break-all;
+}
+.edit_btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.5rem;
+}
+@media screen and (max-width: 800px) {
+	.content .user_details .contain {
+		width: 95%;
+	}
+}
